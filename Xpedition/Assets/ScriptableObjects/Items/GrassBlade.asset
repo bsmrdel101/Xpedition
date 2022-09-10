@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abd6e0ae877328d46bcecc4aa9e599f3, type: 3}
+  m_Name: GrassBlade
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4933653478145174421, guid: 34d4901dfb0d6c0439555c22d8c110f3, type: 3}
+  type: 2
+  itemTier: 1
+  sprite: {fileID: -1270819661, guid: 27e13a0bf8473984c887f3a5ac46af83, type: 3}
+  description: swoosh
+  damage: 22
+  atkSpeed: 13
+  atkRange: 44

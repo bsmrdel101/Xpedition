@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8aad8fd1a1c7a084c892daba31f5ad55, type: 3}
+  m_Name: DamagedPickaxe
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 3783841297054045528, guid: 5ee08f85242bf6c4391b26b26ef7df60, type: 3}
+  type: 5
+  itemTier: 1
+  sprite: {fileID: -255410234, guid: 8ee42cebbce9f1f47b1aae3cc9bfae88, type: 3}
+  description: Wham
+  mineSpeed: 200
