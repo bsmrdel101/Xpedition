@@ -4,21 +4,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace BEAN
+namespace Xpedition
 {
     public class PopupManager : MonoBehaviour
     {
-        [Header("Popups")]
+        [Header("Text Popup")]
         [SerializeField] private TextMeshProUGUI popupText;
+
+        [Header("Key Popup")]
+        [SerializeField] private GameObject popupKey;
+        [SerializeField] private TextMeshProUGUI popupKeyText;
+
+        [Header("Inventory")]
         [SerializeField] private GameObject popupInventorySlotMenu;
         [SerializeField] private RectTransform inventoryPos;
 
         [Header("Actions")]
-        // Normal popup
         public static Action<string> CreatePopupAction;
+        public static Action<string, string> CreatePopupKeyAction;
         public static Action RemovePopupAction;
-        // Inventory slot menu popup
         public static Action<GameObject, ItemObject, int> SetInventorySlotMenu;
+        public static Action RemoveInventorySlotMenuAction;
 
         [Header("References")]
         [SerializeField] private GameObject equipBtn;
@@ -28,20 +34,22 @@ namespace BEAN
         private int selectedItemAmount;
 
 
-        // Subscribes the functions to their respective actions
         private void OnEnable()
         {
             CreatePopupAction += CreatePopup;
+            CreatePopupKeyAction += CreatePopupKey;
             RemovePopupAction += RemovePopup;
             SetInventorySlotMenu += SetInventorySlotPopup;
+            RemoveInventorySlotMenuAction += RemoveInventorySlotPopup;
         }
 
-        // Unsubscribes the functions from their respective actions
         private void OnDisable()
         {
             CreatePopupAction -= CreatePopup;
+            CreatePopupKeyAction -= CreatePopupKey;
             RemovePopupAction -= RemovePopup;
             SetInventorySlotMenu -= SetInventorySlotPopup;
+            RemoveInventorySlotMenuAction -= RemoveInventorySlotPopup;
         }
 
         // Create and display a popup on screen
@@ -50,9 +58,12 @@ namespace BEAN
             popupText.text = text;
         }
 
-        private void RemovePopup()
+        // Create and display a popup on screen, with a key to press
+        private void CreatePopupKey(string text, string key)
         {
-            popupText.text = default;
+            popupKey.SetActive(true);
+            popupText.text = text;
+            popupKeyText.text = key;
         }
 
         // Set a popup that lets the player equip or drop item
@@ -66,22 +77,15 @@ namespace BEAN
             selectedItemAmount = amount;
         }
 
-        // Runs when player clicks the drop item button
-        public void OnClickDropItem()
+        private void RemoveInventorySlotPopup()
         {
-            DisplayInventory.DropItemAction(selectedSlot, selectedItem, selectedItemAmount);
+            popupInventorySlotMenu.SetActive(false);
         }
 
-        // Runs when player clicks the equip item button
-        public void OnClickEquipItem()
+        private void RemovePopup()
         {
-            DisplayInventory.EquipItemAction(selectedSlot, selectedItem);
-        }
-
-        // Runs when player clicks the dequip item button
-        public void OnClickDequipItem()
-        {
-            DisplayInventory.DequipItemAction(selectedSlot, selectedItem);
+            popupText.text = default;
+            popupKey.SetActive(false);
         }
     }
 }

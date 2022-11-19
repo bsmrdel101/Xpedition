@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6599252169824665738}
   - component: {fileID: 6599252169824665733}
-  - component: {fileID: 6599252169824665732}
+  - component: {fileID: 4203602404089525108}
   m_Layer: 0
   m_Name: small_rock
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &6599252169824665732
+--- !u!60 &4203602404089525108
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,7 +102,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.7619048, y: 0.42857143}
+    oldSize: {x: 0.8333333, y: 0.47619048}
     newSize: {x: 0.7619048, y: 0.42857143}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -110,13 +110,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.1198194, y: 0.06486803}
-      - {x: 0.007152796, y: 0.067507446}
-      - {x: -0.10906334, y: 0.05171071}
-      - {x: -0.108456165, y: 0.018946143}
-      - {x: -0.09282449, y: -0.042057976}
-      - {x: -0.041417837, y: -0.03866577}
-      - {x: 0.027951747, y: -0.049613938}
-      - {x: 0.11582613, y: -0.035208464}
-      - {x: 0.12368491, y: -0.039310053}
-      - {x: 0.11361924, y: 0.04950075}
+    - - {x: -0.17346776, y: 0.18959542}
+      - {x: -0.36008352, y: -0.14593986}
+      - {x: -0.18225092, y: -0.1709636}
+      - {x: 0.35025567, y: -0.1673934}
+      - {x: 0.28329223, y: 0.16736634}

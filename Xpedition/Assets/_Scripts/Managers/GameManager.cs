@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BEAN
+namespace Xpedition
 {
     public class GameManager : MonoBehaviour
     {
-        public static bool inventoryOpened = false;
+        [Header("Game State")]
         public static bool paused = false;
+        public static bool inventoryOpened = false;
+
+        [Header("Global Data")]
+        // TODO: Make this a stack of items
+        public static ItemObject selectedItem;
     }
 }

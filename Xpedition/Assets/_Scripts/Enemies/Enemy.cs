@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BEAN
+namespace Xpedition
 {
     public class Enemy : MonoBehaviour
     {

@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd6e0ae877328d46bcecc4aa9e599f3, type: 3}
   m_Name: GrassBlade
   m_EditorClassIdentifier: 
+  itemName: Grass Blade
   prefab: {fileID: 4933653478145174421, guid: 34d4901dfb0d6c0439555c22d8c110f3, type: 3}
   type: 2
   itemTier: 1
-  sprite: {fileID: -1270819661, guid: 27e13a0bf8473984c887f3a5ac46af83, type: 3}
+  sprite: {fileID: 21300000, guid: 4d48ea4761e195e44ac4055e1436443a, type: 3}
   description: swoosh
   damage: 22
   atkSpeed: 13
-  atkRange: 44
+  atkRange: 1

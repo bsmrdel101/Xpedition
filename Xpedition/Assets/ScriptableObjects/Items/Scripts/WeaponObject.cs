@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BEAN
+namespace Xpedition
 {
     [CreateAssetMenu(fileName = "Weapon", menuName = "Inventory System/Items/New Weapon")]
     public class WeaponObject : ItemObject
@@ -13,7 +13,7 @@ namespace BEAN
 
         void Awake()
         {
-            type = ItemType.MeleeWeapon;
+            type = ItemType.Weapon;
         }
     }
 }

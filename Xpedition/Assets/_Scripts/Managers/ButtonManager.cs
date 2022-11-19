@@ -4,14 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace BEAN
+namespace Xpedition
 {
     public class ButtonManager : MonoBehaviour
     {
+        [Header("References")]
         [SerializeField] private Button continueBtn;
 
 
-        void Start()
+        private void Start()
         {
             if (continueBtn != null && PlayerPrefs.GetInt("GameCreated") == 1) continueBtn.interactable = true;
         }
@@ -25,6 +26,15 @@ namespace BEAN
         {
             PlayerPrefs.SetInt("GameCreated", 1);
             SceneManager.LoadScene("Game");
+        }
+
+        public void OnClickOptions()
+        {
+        }
+
+        public void OnClickExit()
+        {
+            Application.Quit();
         }
     }
 }

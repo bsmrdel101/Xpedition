@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BEAN
+namespace Xpedition
 {
     [CreateAssetMenu(fileName = "Default Item", menuName = "Inventory System/Items/Default")]
     public class DefaultObject : ItemObject

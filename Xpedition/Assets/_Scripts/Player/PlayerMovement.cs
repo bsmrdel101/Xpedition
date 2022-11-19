@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace BEAN
+namespace Xpedition
 {
     public class PlayerMovement : MonoBehaviour
     {  
@@ -24,12 +24,25 @@ namespace BEAN
       [SerializeField] private Rigidbody2D rb;
 
 
-      void Start()
+      private void Start()
       {
         StartCoroutine(HandleParticles());
       }
 
-      void FixedUpdate ()
+      private void FixedUpdate ()
+      {
+        if (GameManager.paused) return;
+
+        GetInputs();
+
+        // Calls the MovePlayer function
+        MovePlayer();
+
+        // Invert the player on the x axis when moving left
+        HandleFlipPlayer();
+      }
+
+      private void GetInputs()
       {
         // Get the player's horizontal and vertical inputs for this frame
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -37,12 +50,6 @@ namespace BEAN
 
         //Store user input as a movement vector
         playerInput = new Vector3(horizontal, vertical, 0);
-
-        // Calls the MovePlayer function
-        MovePlayer();
-
-        // Invert the player on the x axis when moving left
-        HandleFlipPlayer();
       }
 
       private void MovePlayer()

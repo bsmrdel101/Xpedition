@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0359206fa2b2dbe4f8727be50e5b3b9b, type: 3}
   m_Name: Mushroom
   m_EditorClassIdentifier: 
+  itemName: Mushroom
   prefab: {fileID: 4838735656991360764, guid: 4084c7d6bd98d6f4cbf7034e616296e3, type: 3}
   type: 3
+  itemTier: 0
   sprite: {fileID: 1535745678, guid: 27e13a0bf8473984c887f3a5ac46af83, type: 3}
   description: Crunchy
   healValue: 12

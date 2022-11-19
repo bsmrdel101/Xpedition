@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace BEAN
+namespace Xpedition
 {
     public class PlayerController : MonoBehaviour
     {
-        [Header("Inventory")]
-        [SerializeField] private InventoryObject inventory;
-        [SerializeField] private GameObject inventoryUI;
-
         [Header("Health")]
         [SerializeField] private float health, maxHealth = 20f;
         [SerializeField] private Slider healthBar;
@@ -19,23 +15,20 @@ namespace BEAN
         [SerializeField] private GameObject pauseMenu;
 
 
-        void Start()
+        private void Start()
         {
             health = maxHealth;
         }
 
-        void Update()
+        private void Update()
         {
             // Pause game
             if (Input.GetKeyDown(KeyCode.Escape)) TogglePauseMenu();
-            
-            // Open inventory
-            if (Input.GetKeyDown(KeyCode.Tab)) ToggleInventory();
 
             // Quicksave
             if (Input.GetKeyDown(KeyCode.F5))
             {
-                inventory.Save();
+                
             }
 
             // Handle game paused
@@ -48,40 +41,10 @@ namespace BEAN
             }
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
-        {
-            var item = other.GetComponent<Item>();
-            if (item && item.canTake)
-            {
-                inventory.AddItem(item.item, item.amount);
-                Destroy(other.gameObject);
-            }
-        }
-
-        private void OnTriggerExit2D(Collider2D other)
-        {
-            var item = other.GetComponent<Item>();
-            if (item) item.canTake = true;
-        }
-
-        private void OnApplicationQuit()
-        {
-            inventory.Container.Clear();
-            inventory.Hotbar.Clear();
-        }
-
         private void TogglePauseMenu()
         {
-            if (GameManager.inventoryOpened) ToggleInventory();
-
             GameManager.paused = !GameManager.paused;
             pauseMenu.SetActive(GameManager.paused);
-        }
-
-        private void ToggleInventory()
-        {
-            GameManager.inventoryOpened = !GameManager.inventoryOpened;
-            inventoryUI.SetActive(GameManager.inventoryOpened);
         }
 
         public void TakeDamage(float damage)

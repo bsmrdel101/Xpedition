@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83e43217038a344b1ca118a066717b, type: 3}
   m_Name: Iron
   m_EditorClassIdentifier: 
+  itemName: Iron
   prefab: {fileID: 2370607609919753394, guid: 07e18ea673fb249488730d294e95644d, type: 3}
-  type: 1
+  type: 0
+  itemTier: 0
   sprite: {fileID: 316716676, guid: 4138f9fadfbdaaa4a9600bfef6e1fab5, type: 3}
   description: Cromchy

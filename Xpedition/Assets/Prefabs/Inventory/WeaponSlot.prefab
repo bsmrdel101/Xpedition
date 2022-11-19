@@ -101,27 +101,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2370607609919753396, guid: 07e18ea673fb249488730d294e95644d, type: 3}
       propertyPath: m_EffectColor.b
-      value: 0.2264151
+      value: 0.1254902
       objectReference: {fileID: 0}
     - target: {fileID: 2370607609919753396, guid: 07e18ea673fb249488730d294e95644d, type: 3}
       propertyPath: m_EffectColor.g
-      value: 0.09998079
+      value: 0.11372549
       objectReference: {fileID: 0}
     - target: {fileID: 2370607609919753396, guid: 07e18ea673fb249488730d294e95644d, type: 3}
       propertyPath: m_EffectColor.r
-      value: 0.043787822
+      value: 0.34901962
       objectReference: {fileID: 0}
     - target: {fileID: 2370607609919753397, guid: 07e18ea673fb249488730d294e95644d, type: 3}
       propertyPath: m_Color.b
-      value: 0.3962264
+      value: 0.2437831
       objectReference: {fileID: 0}
     - target: {fileID: 2370607609919753397, guid: 07e18ea673fb249488730d294e95644d, type: 3}
       propertyPath: m_Color.g
-      value: 0.24780513
+      value: 0.22347811
       objectReference: {fileID: 0}
     - target: {fileID: 2370607609919753397, guid: 07e18ea673fb249488730d294e95644d, type: 3}
       propertyPath: m_Color.r
-      value: 0.18503025
+      value: 0.5849056
       objectReference: {fileID: 0}
     - target: {fileID: 6319388614938445108, guid: 07e18ea673fb249488730d294e95644d, type: 3}
       propertyPath: m_IsActive

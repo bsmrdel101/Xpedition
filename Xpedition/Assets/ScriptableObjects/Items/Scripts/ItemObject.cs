@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BEAN
+namespace Xpedition
 {
     public enum ItemType
     {
         Default,
         Material,
-        MeleeWeapon,
-        RangedWeapon,
+        Weapon,
         Food,
         Tool,
     }
@@ -24,6 +23,7 @@ namespace BEAN
 
     public abstract class ItemObject : ScriptableObject
     {
+        public string itemName;
         public GameObject prefab;
         public ItemType type;
         public ItemTier itemTier;
