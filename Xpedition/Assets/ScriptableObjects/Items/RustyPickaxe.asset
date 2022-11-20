@@ -16,6 +16,6 @@ MonoBehaviour:
   prefab: {fileID: 3783841297054045528, guid: 5ee08f85242bf6c4391b26b26ef7df60, type: 3}
   type: 4
   itemTier: 1
-  sprite: {fileID: -1270819661, guid: 27e13a0bf8473984c887f3a5ac46af83, type: 3}
+  sprite: {fileID: 21300000, guid: 36a20561c35eda248a2182e3f0346826, type: 3}
   description: Wham
   mineSpeed: 200

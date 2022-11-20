@@ -5379,7 +5379,7 @@ PrefabInstance:
     - target: {fileID: 1918323979186926202, guid: 18da4e8c8a8a3814abbaaa51598f537f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1270819661, guid: 27e13a0bf8473984c887f3a5ac46af83, type: 3}
+      objectReference: {fileID: 21300000, guid: 36a20561c35eda248a2182e3f0346826, type: 3}
     - target: {fileID: 2670553479557979232, guid: 18da4e8c8a8a3814abbaaa51598f537f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -5978,7 +5978,7 @@ MonoBehaviour:
         - m_Target: {fileID: 1662106012}
           m_TargetAssemblyTypeName: Xpedition.HotbarSlot, Assembly-CSharp
           m_MethodName: OnDragStart
-          m_Mode: 1
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -8285,7 +8285,7 @@ MonoBehaviour:
         - m_Target: {fileID: 2587987511411920208}
           m_TargetAssemblyTypeName: Xpedition.HotbarSlot, Assembly-CSharp
           m_MethodName: OnDragStart
-          m_Mode: 1
+          m_Mode: 0
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

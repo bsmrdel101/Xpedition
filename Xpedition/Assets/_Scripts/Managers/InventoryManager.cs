@@ -49,6 +49,7 @@ namespace Xpedition
 
         private void ToggleInventory()
         {
+            Destroy(GameObject.Find("GhostImage(Clone)"));
             GameManager.inventoryOpened = !GameManager.inventoryOpened;
             inventoryUI.SetActive(GameManager.inventoryOpened);
         }

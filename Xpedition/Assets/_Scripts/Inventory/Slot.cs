@@ -63,8 +63,10 @@ namespace Xpedition
             return false;
         }
 
-        public void OnDragStart()
+        public void OnDragStart(BaseEventData eventData)
         {
+            PointerEventData pointerData = eventData as PointerEventData;
+            if (pointerData.button != PointerEventData.InputButton.Left) return;
             ghostImage.sprite = item.sprite;
             ghostImageObj = Instantiate(ghostImage.gameObject, Vector3.zero, Quaternion.identity);
             ghostImageObj.transform.SetParent(GameObject.Find("InventoryCanvas").transform);
@@ -72,7 +74,8 @@ namespace Xpedition
 
         public void OnDrag()
         {
-            ghostImageObj.transform.position = Input.mousePosition;
+            if (ghostImageObj)
+                ghostImageObj.transform.position = Input.mousePosition;
         }
 
         public void OnDragEnd()
