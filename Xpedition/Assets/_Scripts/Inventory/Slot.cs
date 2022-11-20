@@ -14,26 +14,40 @@ namespace Xpedition
         public ItemObject item;
         public int amount;
 
+        [Header("Dragging")]
+        GameObject ghostImageObj;
+        private GraphicRaycaster m_Raycaster;
+        private PointerEventData m_PointerEventData;
+        private EventSystem m_EventSystem;
+
         [Header("References")]
-        [SerializeField] private TextMeshProUGUI amountText;
+        public TextMeshProUGUI amountText;
+        [SerializeField] private Image ghostImage;
+        private GameObject inventoryCanvas;
 
 
         private void Start()
         {
             amountText.text = amount.ToString();
+            inventoryCanvas = GameObject.Find("InventoryCanvas");
+            m_Raycaster = inventoryCanvas.GetComponent<GraphicRaycaster>();
+            m_EventSystem = GameObject.Find("EventSystem").GetComponent<EventSystem>();
         }
 
         // Detects when player clicks on the slot
         public void OnPointerClick(PointerEventData eventData)
         {
+            // Right click
             if (eventData.button == PointerEventData.InputButton.Right)
             {
                 InventoryManager.DropItemAction(item, amount);
                 Destroy(this.gameObject);
             }
+
+            // Double click
             if (eventData.clickCount == 2 && CheckAllowedEquipables())
             {
-                InventoryManager.EquipItemAction(item);
+                InventoryManager.EquipItemAction(item, amount);
                 Destroy(this.gameObject);
             }
         }
@@ -47,6 +61,53 @@ namespace Xpedition
                 return true;
             }
             return false;
+        }
+
+        public void OnDragStart()
+        {
+            ghostImage.sprite = item.sprite;
+            ghostImageObj = Instantiate(ghostImage.gameObject, Vector3.zero, Quaternion.identity);
+            ghostImageObj.transform.SetParent(GameObject.Find("InventoryCanvas").transform);
+        }
+
+        public void OnDrag()
+        {
+            ghostImageObj.transform.position = Input.mousePosition;
+        }
+
+        public void OnDragEnd()
+        {
+            m_PointerEventData = new PointerEventData(m_EventSystem);
+            m_PointerEventData.position = Input.mousePosition;
+            List<RaycastResult> results = new List<RaycastResult>();
+            m_Raycaster.Raycast(m_PointerEventData, results);
+
+            // Handle stop dragging item
+            foreach (RaycastResult result in results)
+            {
+                switch (result.gameObject.name)
+                {
+                    case "WeaponHotbarSlot":
+                        // Equip weapon
+                        if (!result.gameObject.GetComponent<HotbarSlot>().item && CheckAllowedEquipables())
+                        {
+                            InventoryManager.EquipItemAction(item, amount);
+                            Destroy(this.gameObject);
+                        }
+                        break;
+                    case "ToolHotbarSlot":
+                        // Equip tool
+                        if (!result.gameObject.GetComponent<HotbarSlot>().item && CheckAllowedEquipables())
+                        {
+                            InventoryManager.EquipItemAction(item, amount);
+                            Destroy(this.gameObject);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            Destroy(ghostImageObj);
         }
 
         // TODO: Show tooltip on hover

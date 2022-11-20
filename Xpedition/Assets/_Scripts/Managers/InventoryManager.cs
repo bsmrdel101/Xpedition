@@ -10,7 +10,7 @@ namespace Xpedition
         [Header("Actions")]
         public static Action<ItemObject, int, GameObject> PickupItemAction;
         public static Action<ItemObject, int> DropItemAction;
-        public static Action<ItemObject> EquipItemAction;
+        public static Action<ItemObject, int> EquipItemAction;
         public static Action<ItemObject> DequipItemAction;
 
         [Header("Inventory")]
@@ -84,15 +84,15 @@ namespace Xpedition
             itemData.GetComponent<SpriteRenderer>().sprite = item.sprite;
         }
 
-        private void EquipItem(ItemObject item)
+        private void EquipItem(ItemObject item, int amount)
         {
             switch (item.type)
             {
                 case ItemType.Weapon:
-                    HandleItemEquipProcess(weaponSlot, item);
+                    HandleItemEquipProcess(weaponSlot, item, amount);
                     break;
                 case ItemType.Tool:
-                    HandleItemEquipProcess(toolSlot, item);
+                    HandleItemEquipProcess(toolSlot, item, amount);
                     break;
                 default:
                     break;
@@ -100,10 +100,12 @@ namespace Xpedition
         }
 
         // Updates hotbar image and data
-        private void HandleItemEquipProcess(HotbarSlot slot, ItemObject item)
+        private void HandleItemEquipProcess(HotbarSlot slot, ItemObject item, int amount)
         {
             slot.item = item;
             slot.hotbarImage.sprite = item.sprite;
+            slot.amount = amount;
+            if (amount > 1) slot.amountText.text = amount.ToString();
             slot.itemSprite.SetActive(true);
         }
 
