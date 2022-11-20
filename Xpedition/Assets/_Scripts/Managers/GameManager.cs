@@ -12,6 +12,6 @@ namespace Xpedition
 
         [Header("Global Data")]
         // TODO: Make this a stack of items
-        public static ItemObject selectedItem;
+        public static List<ItemObject> selectedItem = new List<ItemObject>();
     }
 }

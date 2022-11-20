@@ -19,7 +19,8 @@ namespace Xpedition
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.E) && canTake && GameManager.selectedItem == item)
+            List<ItemObject> itemStack = GameManager.selectedItem;
+            if (Input.GetKeyDown(KeyCode.E) && canTake && itemStack[itemStack.Count - 1] == item)
             {
                 InventoryManager.PickupItemAction(item, amount, this.gameObject);
             }
@@ -30,20 +31,22 @@ namespace Xpedition
             if (other.tag == "Player")
             {
                 canTake = true;
-                GameManager.selectedItem = item;
+                GameManager.selectedItem.Add(item);
                 PopupManager.CreatePopupKeyAction($"{item.itemName}", "E");
             }
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
+            List<ItemObject> itemStack = GameManager.selectedItem;
             if (other.tag == "Player")
             {
                 canTake = false;
+                GameManager.selectedItem.Remove(item);
                 PopupManager.RemovePopupAction();
 
                 // Delete selected item if this is the selected item
-                if (GameManager.selectedItem == item) GameManager.selectedItem = null;
+                if (itemStack.Count > 0 && itemStack[itemStack.Count - 1] == item) GameManager.selectedItem = null;
             }
         }
     }
